@@ -21,6 +21,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    {/* wrap app in provider: QueryClientProvider  */}
     <QueryClientProvider client={queryClient}>
       <App />
     </QueryClientProvider>

@@ -1,15 +1,12 @@
 import React from 'react'
 //styles
 import { Wrapper } from './PostItem.styles'
-
 //types
 import { PostType } from '../../api/API';
-
-
 interface Props {
     item: PostType
 }
-
+//show post item
 const PostItem: React.FC<Props> = ({ item }) => {
     return (
         <>

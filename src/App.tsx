@@ -3,7 +3,8 @@ import { useQuery } from "react-query";
 import _ from 'lodash';
 
 //Components
-
+import PaginationPost from './components/PaginationPost';
+import PostItem from './components/Posts/PostItem';
 
 //material-ui
 import Container from '@mui/material/Container';
@@ -14,8 +15,6 @@ import Grid from '@mui/material/Grid';
 import * as api from './api/API';
 //styles
 import './App.css';
-import PostItem from './components/Posts/PostItem';
-import PaginationPost from './components/PaginationPost';
 
 
 
@@ -59,18 +58,20 @@ function App() {
   const totalPosts = (data !== undefined ? data.length : 100)
   return (
     /**Posts Block */
-
     <Container component={Box} py={3}>
+      {/* pagination components  */}
       <PaginationPost postsPerPage={postsPerPage} totalPosts={totalPosts} onChange={(event, value) => setCurrentPage(value)} setCurrentPage={setCurrentPage} />
+
       <Grid container justifyContent="left" spacing={3}>
+        {/* show posts */}
         {_.map(currentPosts, (post: api.PostType) => (
           <Grid item key={post.id} xs={12} sm={4}>
+            {/* post item component */}
             <PostItem item={post} />
           </Grid>
         ))}
       </Grid>
       <PaginationPost postsPerPage={postsPerPage} totalPosts={totalPosts} onChange={(event, value) => setCurrentPage(value)} setCurrentPage={setCurrentPage} />
-
     </Container >
   );
 }
