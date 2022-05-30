@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
     display: flex;
@@ -6,12 +6,9 @@ export const Wrapper = styled.div`
     flex-direction: column;
     width: 100%;
     border: 1px solid lightblue;
-    border-radius: 20px;
+    border-radius: 1rem;
     height: 100%;
-
-
     div {   
-        font-family: 'Roboto', sans-serif;
         padding: 1rem;
         height: 100%;
     }
