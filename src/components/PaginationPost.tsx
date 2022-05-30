@@ -5,18 +5,18 @@ import Stack from '@mui/material/Stack';
 
 interface Props {
     postsPerPage: number;
-    currentPage: number;
-    setCurrentPage: (value: number) => void;
+    totalPosts: number;
+    onChange: (event: EventTarget, value: number) => void;
+    setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
-const PaginationPost: React.FC<Props> = ({ postsPerPage, currentPage, setCurrentPage }) => {
+const PaginationPost: React.FC<Props> = ({ postsPerPage, totalPosts, onChange, setCurrentPage }) => {
     return (
         <Stack spacing={2}>
             <Box component="div" sx={{ p: 2, border: '1px dashed grey', alignItems: 'center', justifyContent: 'center', margin: '2rem 0' }}>
                 <Pagination
-                    count={100 / postsPerPage}
+                    count={totalPosts / postsPerPage}
                     variant="outlined"
                     color="secondary"
-                    defaultPage={currentPage}
                     showFirstButton={true}
                     showLastButton={true}
                     onChange={(event, value) => setCurrentPage(value)}
