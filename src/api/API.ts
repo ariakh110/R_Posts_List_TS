@@ -4,7 +4,7 @@ const server = axios.create({
     baseURL: "https://jsonplaceholder.typicode.com/",  
 });
 
-interface Posts{
+export interface PostType{
     userId: number;
     id: number;
     title: string;
@@ -13,7 +13,7 @@ interface Posts{
 
 //get all post asynchronously
 const getPosts = async() => {
-    const { data } = await server.get<Posts[]>("/posts");
+    const { data } = await server.get<PostType[]>("/posts");
     return data;
 }
 
